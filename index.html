@@ -3,593 +3,380 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ImagineGoCo — Redesign Concept</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<title>Imagine GoCo — Site being reconstructed</title>
+<meta name="description" content="Imagine GoCo's site is being rebuilt. Check back soon.">
 <style>
-  :root{
-    --ink:#141414;
-    --paper:#F7F4EE;
-    --red:#C23B32;
-    --gold:#D9A441;
-    --denim:#3A506B;
-    --paper-dim:#EDE8DC;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Archivo', sans-serif;
-    overflow-x:hidden;
-  }
-  h1,h2,h3,.display{
-    font-family:'Archivo Black', sans-serif;
-    text-transform:uppercase;
-    letter-spacing:-0.01em;
-    line-height:0.95;
-  }
-  a{color:inherit; text-decoration:none;}
-  .wrap{max-width:1240px; margin:0 auto; padding:0 32px;}
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@400;500;600&family=Permanent+Marker&display=swap');
 
-  /* focus visibility */
-  a:focus-visible, button:focus-visible{outline:3px solid var(--red); outline-offset:3px;}
+  :root{
+    --black:#0a0a09;
+    --panel:#151412;
+    --green:#8dc63f;
+    --red:#e2231a;
+    --gold:#f5a623;
+    --ink:#efece2;
+    --ink-dim:#9c988c;
+    --hair:#2c2a25;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+
+  body{
+    background:var(--black);
+    color:var(--ink);
+    font-family:'Barlow Condensed',sans-serif;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    overflow-x:hidden;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 6px);
+  }
+
+  a{color:var(--gold);}
+
+  /* ticker */
+  .ticker-wrap{
+    width:100%;
+    overflow:hidden;
+    background:var(--panel);
+    border-bottom:1px solid var(--hair);
+    padding:9px 0;
+  }
+  .ticker{
+    display:flex;
+    width:max-content;
+    animation:scroll 22s linear infinite;
+  }
+  .ticker span{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+    padding:0 22px;
+    white-space:nowrap;
+    border-right:1px solid var(--hair);
+  }
+  .ticker span b{color:var(--green);font-weight:600;}
+  @keyframes scroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+
+  main{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:56px 24px 40px;
+  }
+
+  .stage{
+    max-width:640px;
+    width:100%;
+    text-align:center;
+  }
+
+  .logo{
+    width:min(360px, 78vw);
+    height:auto;
+    margin:0 auto 8px;
+    display:block;
+    filter:drop-shadow(0 0 26px rgba(141,198,63,0.14));
+  }
+
+  .stitch{
+    width:100%;
+    max-width:420px;
+    height:14px;
+    margin:22px auto 26px;
+    display:block;
+  }
+  .stitch path{
+    fill:none;
+    stroke:var(--gold);
+    stroke-width:2.5;
+    stroke-linecap:round;
+    stroke-dasharray:10 9;
+    stroke-dashoffset:0;
+    animation:sew 1.6s linear infinite;
+  }
+  @keyframes sew{
+    to{stroke-dashoffset:-38;}
+  }
+
+  h1{
+    font-family:'Anton',sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    font-size:clamp(30px, 6.4vw, 52px);
+    line-height:1.04;
+    letter-spacing:.01em;
+    margin:0 0 18px;
+  }
+  h1 .l1{color:var(--green);}
+  h1 .l2{color:var(--ink);}
+  h1 .l3{color:var(--red);}
+
+  p.sub{
+    font-size:19px;
+    line-height:1.5;
+    color:var(--ink-dim);
+    max-width:440px;
+    margin:0 auto 30px;
+    font-weight:400;
+  }
+
+  .note{
+    font-family:'Permanent Marker',cursive;
+    color:var(--gold);
+    font-size:16px;
+    display:inline-block;
+    transform:rotate(-2deg);
+    margin-bottom:6px;
+  }
+
+  .tag{
+    font-family:'Barlow Condensed',sans-serif;
+    font-weight:600;
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+  }
+
+  .contact{
+    max-width:420px;
+    margin:8px auto 0;
+    text-align:left;
+    background:var(--panel);
+    border:1px solid var(--hair);
+    border-radius:4px;
+    padding:26px 24px 24px;
+  }
+
+  .contact h2{
+    font-family:'Anton',sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    font-size:22px;
+    color:var(--ink);
+    letter-spacing:.01em;
+    margin:0 0 4px;
+    text-align:center;
+  }
+
+  .contact .lead{
+    text-align:center;
+    color:var(--ink-dim);
+    font-size:15px;
+    margin:0 0 20px;
+  }
+
+  .field{margin-bottom:14px;}
+  .field label{
+    display:block;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+    margin-bottom:6px;
+  }
+  .field input,
+  .field textarea{
+    width:100%;
+    background:var(--black);
+    border:1px solid var(--hair);
+    border-radius:3px;
+    color:var(--ink);
+    font-family:'Barlow Condensed',sans-serif;
+    font-size:16px;
+    padding:10px 12px;
+    outline:none;
+  }
+  .field input:focus,
+  .field textarea:focus{
+    border-color:var(--green);
+  }
+  .field textarea{resize:vertical;min-height:96px;}
+  .field .err{
+    display:none;
+    color:var(--red);
+    font-size:12.5px;
+    margin-top:5px;
+  }
+  .field.invalid .err{display:block;}
+  .field.invalid input,
+  .field.invalid textarea{border-color:var(--red);}
+  .hp{position:absolute;left:-9999px;}
+
+  .send-btn{
+    width:100%;
+    background:var(--red);
+    color:#fff;
+    border:none;
+    border-radius:3px;
+    font-family:'Anton',sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+    font-size:16px;
+    padding:13px 0;
+    cursor:pointer;
+    margin-top:4px;
+  }
+  .send-btn:hover{background:#c71e16;}
+  .send-btn:disabled{opacity:.6;cursor:default;}
+
+  .form-msg{
+    text-align:center;
+    font-size:14px;
+    margin-top:14px;
+    display:none;
+  }
+  .form-msg.show{display:block;}
+  .form-msg.ok{color:var(--green);}
+  .form-msg.bad{color:var(--red);}
+
+  footer{
+    text-align:center;
+    padding:22px 16px 26px;
+    font-size:12px;
+    letter-spacing:.08em;
+    color:#5c594f;
+    border-top:1px solid var(--hair);
+  }
 
   @media (prefers-reduced-motion: reduce){
-    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
-  }
-
-  /* ---------- NAV ---------- */
-  header{
-    position:fixed; top:0; left:0; right:0; z-index:100;
-    background:rgba(247,244,238,0.92);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid rgba(20,20,20,0.08);
-  }
-  .nav{display:flex; align-items:center; justify-content:space-between; padding:18px 32px;}
-  .logo{font-family:'Archivo Black'; font-size:20px; text-transform:uppercase; letter-spacing:0.02em;}
-  .logo span{color:var(--red);}
-  .nav-links{display:flex; gap:32px; font-weight:600; font-size:14px; text-transform:uppercase; letter-spacing:0.04em;}
-  .nav-links a{position:relative; padding:4px 0;}
-  .nav-links a::after{
-    content:''; position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--red);
-    transition:width 0.25s ease;
-  }
-  .nav-links a:hover::after{width:100%;}
-  .nav-cta{
-    background:var(--ink); color:var(--paper); padding:10px 22px; font-weight:700; font-size:13px;
-    text-transform:uppercase; letter-spacing:0.05em; border-radius:2px;
-    transition:background 0.2s ease, transform 0.2s ease;
-  }
-  .nav-cta:hover{background:var(--red); transform:translateY(-1px);}
-
-  /* ---------- HERO ---------- */
-  .hero{
-    position:relative; min-height:100vh; display:flex; align-items:center;
-    padding:140px 32px 80px; overflow:hidden;
-    background:var(--ink);
-  }
-  .hero-grid{
-    max-width:1240px; margin:0 auto; width:100%;
-    display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center;
-  }
-  .hero-eyebrow{
-    color:var(--gold); font-weight:700; font-size:13px; letter-spacing:0.12em; text-transform:uppercase;
-    display:flex; align-items:center; gap:10px; margin-bottom:20px;
-    opacity:0; transform:translateY(12px); animation:riseIn 0.7s ease forwards; animation-delay:0.1s;
-  }
-  .hero-eyebrow::before{content:''; width:22px; height:2px; background:var(--gold); display:inline-block;}
-  .hero h1{
-    color:var(--paper); font-size:clamp(40px, 5.6vw, 78px);
-    opacity:0; transform:translateY(20px); animation:riseIn 0.8s ease forwards; animation-delay:0.25s;
-  }
-  .hero h1 .accent{color:var(--red);}
-  .hero p.sub{
-    color:rgba(247,244,238,0.72); font-size:18px; max-width:480px; margin-top:24px; line-height:1.55;
-    opacity:0; transform:translateY(20px); animation:riseIn 0.8s ease forwards; animation-delay:0.4s;
-  }
-  .hero-ctas{
-    margin-top:36px; display:flex; gap:16px; flex-wrap:wrap;
-    opacity:0; transform:translateY(20px); animation:riseIn 0.8s ease forwards; animation-delay:0.55s;
-  }
-  .btn-primary{
-    background:var(--red); color:var(--paper); padding:16px 30px; font-weight:700; font-size:14px;
-    text-transform:uppercase; letter-spacing:0.05em; border-radius:2px; display:inline-block;
-    transition:transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(194,59,50,0.35);}
-  .btn-ghost{
-    border:1.5px solid rgba(247,244,238,0.4); color:var(--paper); padding:16px 30px; font-weight:700; font-size:14px;
-    text-transform:uppercase; letter-spacing:0.05em; border-radius:2px; display:inline-block;
-    transition:border-color 0.2s ease, background 0.2s ease;
-  }
-  .btn-ghost:hover{border-color:var(--gold); background:rgba(217,164,65,0.08);}
-
-  @keyframes riseIn{ to{ opacity:1; transform:translateY(0);} }
-
-  /* Layered garment stack — registration-mark motion */
-  .stack{
-    position:relative; height:480px;
-    perspective:1000px;
-  }
-  .tee{
-    position:absolute; width:78%; left:11%; top:6%;
-    border-radius:6px;
-    box-shadow:0 30px 60px rgba(0,0,0,0.45);
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Archivo Black'; text-transform:uppercase; letter-spacing:0.02em;
-    transition:transform 0.6s cubic-bezier(.16,1,.3,1);
-  }
-  .tee svg, .tee img{width:100%; height:100%; display:block; object-fit:cover;}
-  .tee-1{ z-index:3; animation:settle1 1s cubic-bezier(.16,1,.3,1) forwards; animation-delay:0.5s; }
-  .tee-2{ z-index:2; animation:settle2 1s cubic-bezier(.16,1,.3,1) forwards; animation-delay:0.35s; }
-  .tee-3{ z-index:1; animation:settle3 1s cubic-bezier(.16,1,.3,1) forwards; animation-delay:0.2s; }
-
-  @keyframes settle1{
-    0%{ transform:translate(40px,-30px) rotate(8deg); opacity:0; }
-    100%{ transform:translate(0,0) rotate(-3deg); opacity:1; }
-  }
-  @keyframes settle2{
-    0%{ transform:translate(-50px,20px) rotate(-10deg); opacity:0; }
-    100%{ transform:translate(-38px,28px) rotate(4deg); opacity:1; }
-  }
-  @keyframes settle3{
-    0%{ transform:translate(60px,60px) rotate(14deg); opacity:0; }
-    100%{ transform:translate(34px,58px) rotate(-8deg); opacity:1; }
-  }
-  .stack:hover .tee-1{ transform:translate(-6px,-8px) rotate(-6deg); }
-  .stack:hover .tee-2{ transform:translate(-46px,20px) rotate(6deg); }
-  .stack:hover .tee-3{ transform:translate(42px,64px) rotate(-10deg); }
-
-  .reg-mark{
-    position:absolute; width:26px; height:26px; opacity:0.5;
-    animation:riseIn 0.6s ease forwards; animation-delay:0.9s; opacity:0;
-  }
-  .reg-mark svg{width:100%; height:100%;}
-  .reg-1{ top:-6px; right:8%; }
-  .reg-2{ bottom:6%; left:0; }
-
-  .scroll-cue{
-    position:absolute; bottom:32px; left:50%; transform:translateX(-50%);
-    color:rgba(247,244,238,0.5); font-size:11px; letter-spacing:0.15em; text-transform:uppercase;
-    display:flex; flex-direction:column; align-items:center; gap:8px;
-  }
-  .scroll-cue .line{width:1px; height:34px; background:rgba(247,244,238,0.35); position:relative; overflow:hidden;}
-  .scroll-cue .line::after{
-    content:''; position:absolute; top:-100%; left:0; width:100%; height:100%; background:var(--gold);
-    animation:scrollLine 1.8s ease-in-out infinite;
-  }
-  @keyframes scrollLine{ 0%{top:-100%;} 60%{top:100%;} 100%{top:100%;} }
-
-  /* ---------- MARQUEE STRIP ---------- */
-  .marquee{
-    background:var(--red); color:var(--paper); padding:14px 0; overflow:hidden; white-space:nowrap;
-    border-top:1px solid rgba(0,0,0,0.15); border-bottom:1px solid rgba(0,0,0,0.15);
-  }
-  .marquee-track{display:inline-block; animation:scrollMarquee 26s linear infinite;}
-  .marquee-track span{
-    display:inline-block; font-weight:700; font-size:14px; text-transform:uppercase; letter-spacing:0.08em;
-    padding:0 28px; position:relative;
-  }
-  .marquee-track span::after{content:'✦'; margin-left:28px; opacity:0.6;}
-  @keyframes scrollMarquee{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
-
-  /* ---------- SECTION GENERIC ---------- */
-  section{padding:110px 0;}
-  .section-head{max-width:640px; margin-bottom:60px;}
-  .eyebrow{
-    color:var(--red); font-weight:700; font-size:13px; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:14px; display:block;
-  }
-  .section-head h2{font-size:clamp(30px,4vw,48px);}
-  .section-head p{margin-top:18px; font-size:17px; color:rgba(20,20,20,0.68); line-height:1.6;}
-
-  /* reveal-on-scroll */
-  .reveal{opacity:0; transform:translateY(28px); transition:opacity 0.7s ease, transform 0.7s ease;}
-  .reveal.in{opacity:1; transform:translateY(0);}
-
-  /* ---------- PROCESS ---------- */
-  .process{background:var(--paper-dim);}
-  .process-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
-  .process-card{
-    background:var(--paper); border:1px solid rgba(20,20,20,0.08); padding:28px 22px; border-radius:4px;
-    transition:transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-  }
-  .process-card:hover{
-    transform:translateY(-6px); box-shadow:0 20px 40px rgba(20,20,20,0.1); border-color:var(--red);
-  }
-  .process-num{font-family:'Archivo Black'; font-size:13px; color:var(--red); letter-spacing:0.1em; margin-bottom:16px;}
-  .process-card h3{font-size:19px; text-transform:none; letter-spacing:0; margin-bottom:10px;}
-  .process-card p{font-size:14.5px; color:rgba(20,20,20,0.62); line-height:1.55;}
-
-  /* ---------- COLLECTIONS RACK ---------- */
-  .rack-wrap{overflow-x:auto; padding-bottom:12px; -webkit-overflow-scrolling:touch; scrollbar-width:thin;}
-  .rack{display:flex; gap:20px; padding:8px 4px 8px 4px; width:max-content;}
-  .tag-card{
-    width:230px; background:var(--ink); border-radius:6px; padding:22px 20px 26px; flex-shrink:0;
-    position:relative; overflow:hidden;
-    transition:transform 0.35s cubic-bezier(.16,1,.3,1);
-  }
-  .tag-card::before{
-    content:''; position:absolute; top:16px; right:16px; width:10px; height:10px; border-radius:50%;
-    border:1.5px solid rgba(247,244,238,0.35);
-  }
-  .tag-card:hover{transform:translateY(-10px) rotate(-1.2deg);}
-  .tag-swatch{width:100%; height:140px; border-radius:4px; margin-bottom:18px;}
-  .tag-card h3{color:var(--paper); font-size:16px; text-transform:uppercase; letter-spacing:0.02em; margin-bottom:6px;}
-  .tag-card p{color:rgba(247,244,238,0.55); font-size:12.5px; text-transform:uppercase; letter-spacing:0.06em;}
-
-  /* ---------- WHY US ---------- */
-  .why-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
-  .why-list{list-style:none;}
-  .why-list li{
-    display:flex; gap:18px; padding:20px 0; border-bottom:1px solid rgba(20,20,20,0.1);
-  }
-  .why-list li:first-child{padding-top:0;}
-  .why-mark{color:var(--gold); font-family:'Archivo Black'; font-size:20px; flex-shrink:0;}
-  .why-list h3{font-size:16.5px; text-transform:none; letter-spacing:0; margin-bottom:4px;}
-  .why-list p{font-size:14px; color:rgba(20,20,20,0.6); line-height:1.5;}
-  .why-visual{
-    background:var(--denim); border-radius:8px; height:420px; position:relative; overflow:hidden;
-    display:flex; align-items:center; justify-content:center;
-  }
-  .why-visual .stitch{
-    position:absolute; inset:20px; border:2px dashed rgba(247,244,238,0.25); border-radius:6px;
-  }
-  .why-visual span{
-    color:rgba(247,244,238,0.85); font-family:'Archivo Black'; font-size:15px; letter-spacing:0.1em;
-    text-transform:uppercase; text-align:center; padding:0 40px;
-  }
-
-  /* ---------- CTA BAND ---------- */
-  .cta-band{
-    background:var(--red); color:var(--paper); text-align:center; padding:100px 32px;
-  }
-  .cta-band h2{font-size:clamp(32px,5vw,58px); color:var(--paper); max-width:760px; margin:0 auto 26px;}
-  .cta-band p{font-size:17px; color:rgba(247,244,238,0.85); max-width:520px; margin:0 auto 36px;}
-  .cta-band .btn-primary{background:var(--ink);}
-  .cta-band .btn-primary:hover{box-shadow:0 10px 24px rgba(0,0,0,0.35);}
-
-  /* ---------- FOOTER ---------- */
-  footer{background:var(--ink); color:rgba(247,244,238,0.6); padding:60px 32px 30px; font-size:13.5px;}
-  .footer-grid{display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px; margin-bottom:50px;}
-  .footer-grid h4{color:var(--paper); font-size:13px; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:16px;}
-  .footer-grid a{display:block; padding:5px 0; transition:color 0.2s ease;}
-  .footer-grid a:hover{color:var(--gold);}
-  .footer-bottom{border-top:1px solid rgba(247,244,238,0.12); padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;}
-
-  /* ---------- EDIT MODE ---------- */
-  #edit-toggle{
-    position:fixed; bottom:24px; right:24px; z-index:200;
-    background:var(--ink); color:var(--paper); border:none; cursor:pointer;
-    padding:14px 22px; border-radius:30px; font-family:'Archivo'; font-weight:700;
-    font-size:13px; text-transform:uppercase; letter-spacing:0.05em;
-    box-shadow:0 10px 30px rgba(0,0,0,0.35); display:flex; align-items:center; gap:8px;
-    transition:transform 0.2s ease, background 0.2s ease;
-  }
-  #edit-toggle:hover{transform:translateY(-2px); background:var(--red);}
-  #edit-toggle .dot{width:8px; height:8px; border-radius:50%; background:#5ee08b; transition:background 0.2s ease;}
-  body.editing #edit-toggle .dot{background:var(--gold);}
-
-  #edit-panel{
-    position:fixed; top:0; right:-320px; width:300px; height:100%; z-index:199;
-    background:var(--paper); border-left:1px solid rgba(20,20,20,0.12);
-    box-shadow:-20px 0 40px rgba(0,0,0,0.15);
-    padding:90px 22px 22px; overflow-y:auto;
-    transition:right 0.35s cubic-bezier(.16,1,.3,1);
-    font-family:'Archivo'; font-size:13px;
-  }
-  body.editing #edit-panel{ right:0; }
-  #edit-panel h4{
-    font-family:'Archivo Black'; font-size:12px; text-transform:uppercase; letter-spacing:0.08em;
-    margin:22px 0 10px; color:var(--red);
-  }
-  #edit-panel h4:first-child{margin-top:0;}
-  .swatch-row{display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;}
-  .swatch-row label{color:rgba(20,20,20,0.7);}
-  .swatch-row input[type="color"]{
-    width:36px; height:28px; border:1px solid rgba(20,20,20,0.15); border-radius:4px; cursor:pointer; background:none; padding:0;
-  }
-  #edit-panel .hint{
-    color:rgba(20,20,20,0.55); line-height:1.5; font-size:12.5px; margin-bottom:4px;
-  }
-  #edit-panel .reset-btn{
-    width:100%; margin-top:18px; padding:10px; border:1px solid rgba(20,20,20,0.2); background:none;
-    border-radius:4px; cursor:pointer; font-weight:700; text-transform:uppercase; font-size:11.5px; letter-spacing:0.05em;
-  }
-  #edit-panel .reset-btn:hover{border-color:var(--red); color:var(--red);}
-
-  /* editable affordances only while editing */
-  body.editing [data-editable="text"]{
-    outline:1.5px dashed transparent; border-radius:2px; cursor:text; transition:outline-color 0.15s ease;
-  }
-  body.editing [data-editable="text"]:hover{ outline-color:var(--gold); }
-  body.editing [data-editable="text"]:focus{ outline:1.5px solid var(--red); outline-style:solid; }
-
-  body.editing [data-editable="image"]{ cursor:pointer; position:relative; }
-  body.editing [data-editable="image"]:hover::after{
-    content:'Click to replace image'; position:absolute; inset:0; background:rgba(20,20,20,0.55);
-    color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700;
-    text-transform:uppercase; letter-spacing:0.04em; border-radius:inherit; text-align:center; padding:10px;
-  }
-
-  @media(max-width:900px){
-    .hero-grid{grid-template-columns:1fr;}
-    .stack{height:340px; margin-top:20px;}
-    .process-grid{grid-template-columns:1fr 1fr;}
-    .why-grid{grid-template-columns:1fr; gap:36px;}
-    .why-visual{height:280px;}
-    .nav-links{display:none;}
-    .footer-grid{grid-template-columns:1fr 1fr;}
+    .ticker, .stitch path{animation:none;}
   }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="nav">
-    <div class="logo">Imagine<span>Go</span>Co.</div>
-    <nav class="nav-links">
-      <a href="#process">Process</a>
-      <a href="#collections">Collections</a>
-      <a href="#why">Why Us</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <a href="#contact" class="nav-cta">Get a Quote</a>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="hero-grid">
-    <div>
-      <span class="hero-eyebrow" data-editable="text">Columbus, Ohio · Nationwide Shipping</span>
-      <h1 data-editable="text">Custom apparel, <span class="accent">printed with purpose.</span></h1>
-      <p class="sub" data-editable="text">Faith-based, family-run screen printing for churches, teams, businesses and causes across the U.S. Every shirt is pressed by hand — not mass-produced.</p>
-      <div class="hero-ctas">
-        <a href="#contact" class="btn-primary">Start Your Order</a>
-        <a href="#collections" class="btn-ghost">Browse Collections</a>
-      </div>
-    </div>
-    <div class="stack" aria-hidden="true">
-      <div class="tee tee-3" data-editable="image">
-        <img src="images/yeti-tumblers.png" alt="" loading="eager">
-      </div>
-      <div class="tee tee-2" data-editable="image">
-        <img src="images/hero-sweethour.png" alt="" loading="eager">
-      </div>
-      <div class="tee tee-1" data-editable="image">
-        <img src="images/hero-usa.png" alt="" loading="eager">
-      </div>
-      <div class="reg-mark reg-1">
-        <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="#D9A441" stroke-width="1.5"/><line x1="20" y1="0" x2="20" y2="40" stroke="#D9A441" stroke-width="1"/><line x1="0" y1="20" x2="40" y2="20" stroke="#D9A441" stroke-width="1"/></svg>
-      </div>
-      <div class="reg-mark reg-2">
-        <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="#C23B32" stroke-width="1.5"/><line x1="20" y1="0" x2="20" y2="40" stroke="#C23B32" stroke-width="1"/><line x1="0" y1="20" x2="40" y2="20" stroke="#C23B32" stroke-width="1"/></svg>
-      </div>
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker">
+      <span><b>Imagine GoCo</b> — Apparel &amp; Branding</span>
+      <span>Imagination In Motion</span>
+      <span><b>Imagine GoCo</b> — Apparel &amp; Branding</span>
+      <span>Imagination In Motion</span>
+      <span><b>Imagine GoCo</b> — Apparel &amp; Branding</span>
+      <span>Imagination In Motion</span>
+      <span><b>Imagine GoCo</b> — Apparel &amp; Branding</span>
+      <span>Imagination In Motion</span>
     </div>
   </div>
-  <div class="scroll-cue"><span>Scroll</span><div class="line"></div></div>
-</section>
 
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>Screen Printing</span><span>Faith Wear</span><span>Team Apparel</span><span>Promo Products</span>
-    <span>Bulk Orders</span><span>Church Merch</span><span>Event Shirts</span><span>Business Branding</span>
-    <span>Screen Printing</span><span>Faith Wear</span><span>Team Apparel</span><span>Promo Products</span>
-    <span>Bulk Orders</span><span>Church Merch</span><span>Event Shirts</span><span>Business Branding</span>
-  </div>
-</div>
+  <main>
+    <div class="stage">
+      <img class="logo" src="logo.jpg" alt="Imagine GoCo — Apparel and Branding">
 
-<section class="process" id="process">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow" data-editable="text">How It's Made</span>
-      <h2 data-editable="text">From concept to press, hands-on the whole way</h2>
-      <p data-editable="text">Every order goes through the same craftsmanship, whether it's one shirt or five hundred.</p>
+      <svg class="stitch" viewBox="0 0 420 14" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M2,7 L418,7"/>
+      </svg>
+
+      <h1><span class="l1">We're</span> <span class="l2">stitching</span> <span class="l3">something new</span></h1>
+      <p class="sub">The site's being rebuilt from the ground up. Same imagination, new fit — check back soon.</p>
+
+      <div class="note">new drop loading&hellip;</div>
+      <div class="tag">Imagine GoCo</div>
+
+      <form class="contact" id="contactForm" novalidate>
+        <h2>Get in touch</h2>
+        <p class="lead">Site's under construction, the inbox isn't. Send a request and it lands straight in ours.</p>
+
+        <div class="field" id="f-name">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" autocomplete="name">
+          <div class="err">Enter your name.</div>
+        </div>
+
+        <div class="field" id="f-email">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email">
+          <div class="err">Enter a valid email.</div>
+        </div>
+
+        <div class="field" id="f-message">
+          <label for="message">What do you need?</label>
+          <textarea id="message" name="message"></textarea>
+          <div class="err">Add a quick message.</div>
+        </div>
+
+        <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off">
+
+        <button class="send-btn" type="submit" id="sendBtn">Send message</button>
+        <div class="form-msg" id="formMsg"></div>
+      </form>
     </div>
-    <div class="process-grid">
-      <div class="process-card reveal">
-        <div class="process-num">01</div>
-        <h3>Design Intake</h3>
-        <p>Share your idea, colors and inspiration. We sketch two concepts built around your vision.</p>
-      </div>
-      <div class="process-card reveal">
-        <div class="process-num">02</div>
-        <h3>Hot &amp; Cold Peel</h3>
-        <p>Transfers are set using the right method for the fabric — built for durability, not shortcuts.</p>
-      </div>
-      <div class="process-card reveal">
-        <div class="process-num">03</div>
-        <h3>Press &amp; Inspect</h3>
-        <p>Every piece is hand-pressed and checked before it leaves the shop.</p>
-      </div>
-      <div class="process-card reveal">
-        <div class="process-num">04</div>
-        <h3>50+ Wash Tested</h3>
-        <p>Prints are built to outlast the closet — no cracking, no fading, no fuss.</p>
-      </div>
-    </div>
-  </div>
-</section>
+  </main>
 
-<section id="collections">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow" data-editable="text">Browse The Rack</span>
-      <h2 data-editable="text">Collections for every story</h2>
-      <p data-editable="text">From Sunday best to Saturday sarcasm — drag to explore.</p>
-    </div>
-  </div>
-  <div class="wrap">
-    <div class="rack-wrap reveal">
-      <div class="rack">
-        <div class="tag-card"><div class="tag-swatch" data-editable="image" style="background:#141414 url('images/hero-sweethour.png') center 20%/cover;"></div><h3 data-editable="text">Faith Wear</h3><p data-editable="text">Scripture &amp; ministry</p></div>
-        <div class="tag-card"><div class="tag-swatch" data-editable="image" style="background:#141414 url('images/hero-usa.png') center/cover;"></div><h3 data-editable="text">America 250</h3><p data-editable="text">Patriotic collection</p></div>
-        <div class="tag-card"><div class="tag-swatch" data-editable="image" style="background:#141414 url('images/yeti-tumblers.png') center/cover;"></div><h3 data-editable="text">Promo Products</h3><p data-editable="text">Drinkware &amp; gifts</p></div>
-        <div class="tag-card"><div class="tag-swatch" data-editable="image" style="background:#8a8f5c;"></div><h3 data-editable="text">Sarcastic</h3><p data-editable="text">Dry humor, bold type</p></div>
-        <div class="tag-card"><div class="tag-swatch" data-editable="image" style="background:#7a4a3a;"></div><h3 data-editable="text">The Cause</h3><p data-editable="text">Awareness &amp; advocacy</p></div>
-        <div class="tag-card"><div class="tag-swatch" data-editable="image" style="background:#5c5c8a;"></div><h3 data-editable="text">Everyday</h3><p data-editable="text">Casual essentials</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="why" style="background:var(--paper-dim);">
-  <div class="wrap why-grid">
-    <div class="reveal">
-      <span class="eyebrow">Why ImagineGoCo</span>
-      <h2 style="font-size:clamp(28px,3.6vw,40px); margin-bottom:30px;">Built on craft, not shortcuts</h2>
-      <ul class="why-list">
-        <li><span class="why-mark">✦</span><div><h3>Personalized service</h3><p>You work directly with the shop, not a call center.</p></div></li>
-        <li><span class="why-mark">✦</span><div><h3>Nationwide shipping</h3><p>Based in Columbus, printing for customers across the country.</p></div></li>
-        <li><span class="why-mark">✦</span><div><h3>Faith-based values</h3><p>Integrity in every order, big or small.</p></div></li>
-        <li><span class="why-mark">✦</span><div><h3>Fast, honest communication</h3><p>No guessing where your order stands.</p></div></li>
-      </ul>
-    </div>
-    <div class="why-visual reveal">
-      <div class="stitch"></div>
-      <span>50+ Wash<br>Durability Tested</span>
-    </div>
-  </div>
-</section>
-
-<section class="cta-band" id="contact">
-  <h2 data-editable="text">Ready to press your idea into reality?</h2>
-  <p data-editable="text">Tell us what you're making — we'll send concepts back fast.</p>
-  <a href="tel:614-726-2168" class="btn-primary">Call 614-726-2168</a>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="logo" style="color:var(--paper);">Imagine<span style="color:var(--red);">Go</span>Co.</div>
-        <p style="margin-top:14px; max-width:280px; line-height:1.6;">Custom apparel printing based in Columbus, Ohio — serving the continental U.S.</p>
-      </div>
-      <div>
-        <h4>Shop</h4>
-        <a href="#">Custom T-Shirts</a>
-        <a href="#">Business Branding</a>
-        <a href="#">Promo Products</a>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <a href="#">About</a>
-        <a href="#">Gallery</a>
-        <a href="#">Contact</a>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <a href="tel:614-726-2168">614-726-2168</a>
-        <a href="mailto:imaginegoco@gmail.com">imaginegoco@gmail.com</a>
-        <a href="#">Columbus, OH 43229</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 ImagineGoCo. All rights reserved.</span>
-      <span>Design concept by CBUS Events</span>
-    </div>
-  </div>
-</footer>
-
-<button id="edit-toggle" type="button"><span class="dot"></span>Edit Design</button>
-
-<div id="edit-panel">
-  <h4>Theme Colors</h4>
-  <div class="swatch-row"><label for="c-ink">Ink (dark)</label><input type="color" id="c-ink" value="#141414"></div>
-  <div class="swatch-row"><label for="c-paper">Paper</label><input type="color" id="c-paper" value="#F7F4EE"></div>
-  <div class="swatch-row"><label for="c-red">Accent Red</label><input type="color" id="c-red" value="#C23B32"></div>
-  <div class="swatch-row"><label for="c-gold">Gold</label><input type="color" id="c-gold" value="#D9A441"></div>
-  <div class="swatch-row"><label for="c-denim">Denim</label><input type="color" id="c-denim" value="#3A506B"></div>
-
-  <h4>Text</h4>
-  <p class="hint">Click any headline or paragraph on the page and type to edit it directly.</p>
-
-  <h4>Images</h4>
-  <p class="hint">Hover an image or color swatch and click it to upload a replacement.</p>
-
-  <button class="reset-btn" type="button" id="reset-theme">Reset Colors</button>
-</div>
-
-<input type="file" id="img-upload" accept="image/*" style="display:none;">
+  <footer>Imagine GoCo &middot; Apparel &amp; Branding</footer>
 
 <script>
-  const revealEls = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  }, {threshold:0.15});
-  revealEls.forEach(el=>io.observe(el));
+  var form = document.getElementById('contactForm');
+  var btn = document.getElementById('sendBtn');
+  var msg = document.getElementById('formMsg');
 
-  // ---------- EDIT MODE ----------
-  const body = document.body;
-  const toggle = document.getElementById('edit-toggle');
-  const fileInput = document.getElementById('img-upload');
-  let activeImageTarget = null;
+  function setInvalid(id, invalid){
+    document.getElementById(id).classList.toggle('invalid', invalid);
+  }
 
-  const defaultTheme = {
-    '--ink':'#141414', '--paper':'#F7F4EE', '--red':'#C23B32', '--gold':'#D9A441', '--denim':'#3A506B'
-  };
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
 
-  toggle.addEventListener('click', ()=>{
-    const editing = body.classList.toggle('editing');
-    toggle.textContent = '';
-    const dot = document.createElement('span'); dot.className='dot';
-    toggle.appendChild(dot);
-    toggle.append(editing ? ' Exit Edit Mode' : ' Edit Design');
+    var name = document.getElementById('name').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var message = document.getElementById('message').value.trim();
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-    document.querySelectorAll('[data-editable="text"]').forEach(el=>{
-      el.setAttribute('contenteditable', editing ? 'true' : 'false');
+    setInvalid('f-name', !name);
+    setInvalid('f-email', !emailOk);
+    setInvalid('f-message', !message);
+
+    if(!name || !emailOk || !message){
+      msg.textContent = '';
+      msg.className = 'form-msg';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    msg.className = 'form-msg';
+    msg.textContent = '';
+
+    var data = new FormData(form);
+    data.append('_subject', 'New message from imaginegoco.com');
+
+    fetch('https://formsubmit.co/ajax/imaginegoco@gmail.com', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: data
+    })
+    .then(function(res){ if(!res.ok) throw new Error(); return res.json(); })
+    .then(function(){
+      msg.textContent = 'Message sent. We\'ll get back to you soon.';
+      msg.className = 'form-msg show ok';
+      form.reset();
+      btn.textContent = 'Send message';
+      btn.disabled = false;
+    })
+    .catch(function(){
+      msg.textContent = 'Something went wrong. Email us directly at imaginegoco@gmail.com.';
+      msg.className = 'form-msg show bad';
+      btn.textContent = 'Send message';
+      btn.disabled = false;
     });
   });
 
-  // color pickers -> CSS variables
-  Object.keys(defaultTheme).forEach(varName=>{
-    const id = 'c-' + varName.replace('--','');
-    const input = document.getElementById(id);
-    if(!input) return;
-    input.addEventListener('input', (e)=>{
-      document.documentElement.style.setProperty(varName, e.target.value);
+  ['name','email','message'].forEach(function(id){
+    document.getElementById(id).addEventListener('input', function(){
+      setInvalid('f-' + id, false);
     });
-  });
-
-  document.getElementById('reset-theme').addEventListener('click', ()=>{
-    Object.entries(defaultTheme).forEach(([varName, val])=>{
-      document.documentElement.style.setProperty(varName, val);
-      const input = document.getElementById('c-' + varName.replace('--',''));
-      if(input) input.value = val;
-    });
-  });
-
-  // image click-to-swap
-  document.addEventListener('click', (e)=>{
-    if(!body.classList.contains('editing')) return;
-    const target = e.target.closest('[data-editable="image"]');
-    if(!target) return;
-    activeImageTarget = target;
-    fileInput.click();
-  });
-
-  fileInput.addEventListener('change', (e)=>{
-    const file = e.target.files[0];
-    if(!file || !activeImageTarget) return;
-    const reader = new FileReader();
-    reader.onload = (ev)=>{
-      const url = ev.target.result;
-      const img = activeImageTarget.querySelector('img');
-      if(img){
-        img.src = url;
-      } else {
-        // it's a swatch div using background-image
-        const currentBg = activeImageTarget.style.background;
-        const colorMatch = currentBg.match(/#[0-9a-fA-F]{3,6}/);
-        const bgColor = colorMatch ? colorMatch[0] : '#141414';
-        activeImageTarget.style.background = `${bgColor} url('${url}') center/cover`;
-      }
-    };
-    reader.readAsDataURL(file);
-    fileInput.value = '';
   });
 </script>
 
